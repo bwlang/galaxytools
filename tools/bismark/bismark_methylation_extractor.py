@@ -96,15 +96,7 @@ def __main__():
     if args.num_threads:
         additional_opts += ' --multicore %d' % args.num_threads
 
-    #detect BAM file, use samtools view if it is a bam file
-    f = open (args.infile, 'rb')
-    sig = f.read(4)
-    f.close()
-    if sig == '\x1f\x8b\x08\x04' :
-	cmd = cmd % (output_dir, additional_opts, '-')	
-	cmd = 'samtools view %s | %s' % (args.infile, cmd )
-    else :
-        cmd = cmd % (output_dir, additional_opts, args.infile)
+    cmd = cmd % (output_dir, additional_opts, args.infile)
 
     # Run
     try:
