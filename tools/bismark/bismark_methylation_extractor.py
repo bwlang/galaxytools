@@ -37,6 +37,7 @@ def __main__():
     parser.add_argument( '--no-overlap', dest='no_overlap', action="store_true" )
     parser.add_argument( '--compress' )
     parser.add_argument( '--ignore-bps', dest='ignore_bps', type=int )
+    parser.add_argument( '--multicore', dest='num_threads', type=int)
 
     # OT - original top strand
     parser.add_argument( '--cpg_ot' )
@@ -92,6 +93,8 @@ def __main__():
         additional_opts += ' --merge_non_CpG '
     if args.report_file:
         additional_opts += ' --report '
+    if args.num_threads:
+        additional_opts += ' --multicore %d' % args.num_threads
 
     #detect BAM file, use samtools view if it is a bam file
     f = open (args.infile, 'rb')

@@ -38,6 +38,8 @@
             --merge-non-cpg
         #end if
 
+        --multicore \${GALAXY_SLOTS:-1}
+
         #if $compress:
             --compress $compressed_output
         #else:
