@@ -44,7 +44,7 @@
             --compress $compressed_output
         #else:
             #if $comprehensive == False and $merge_non_cpg == False:
-                ##twelfe files
+                ##twelve files
                 --cpg_ot $cpg_ot
                 --chg_ot $chg_ot
                 --chh_ot $chh_ot
